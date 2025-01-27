@@ -1,6 +1,7 @@
+import logging
 import socket
 
-from flask import Flask, Response
+from flask import Flask, Response, jsonify
 from prometheus_client import Gauge, generate_latest, CollectorRegistry
 import psutil
 import os
@@ -18,7 +19,8 @@ ram_available_gauge = Gauge('ram_available', 'RAM available percentage', registr
 
 @app.route('/ip')
 def ip():
-    return Response({"ip": socket.gethostbyname(socket.gethostname()), "name": socket.gethostname()})
+    response_json = {"ip": socket.gethostbyname(socket.gethostname()), "name": socket.gethostname()}
+    return jsonify(response_json)
 
 @app.route('/metrics')
 def metrics():

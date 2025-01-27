@@ -1,28 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grafana
+  name: prometheus
+  namespace: app-mymetrics
   labels:
-    app: grafana
+    app: prometheus
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: grafana
+      app: prometheus
   template:
     metadata:
       labels:
-        app: grafana
+        app: prometheus
     spec:
       containers:
-      - name: grafana
-        image: grafana/grafana:11.4.0
+      - name: prometheus
+        image: bitnami/prometheus:2.55.1
         env:
-          - name: GF_SECURITY_ADMIN_USER
-            value: admin
-          - name: GF_SECURITY_ADMIN_PASSWORD
-            value: admin
-          - name: GF_SERVER_HTTP_PORT
-            value: "3000"
+          - name: ALLOW_ANONYMOUS_LOGIN
+            value: "yes"
         ports:
-        - containerPort: 3000
+        - containerPort: 9090

@@ -1,8 +1,8 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mymetrics-app
+  namespace: app-mymetrics
   labels:
     app: mymetrics
 spec:
@@ -17,41 +17,7 @@ spec:
     spec:
       containers:
       - name: mymetrics
-        image: anatolykatz/mymetrics:latest
-        env:
-        - name: FLASK_APP
-          value: /app/main.py
+        imagePullPolicy: Always
+        image: anatolykatz/mymetrics:1.1.2
         ports:
         - containerPort: 8080
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: mymetrics-service
-spec:
-  selector:
-    app: mymetrics-app
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080
-  type: ClusterIP
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: mymetrics-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-  - host: mymetrics.local
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: mymetrics-service
-            port:
-              number: 80

@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   app:
-    image: anatolykatz/mymetrics:latest
+    image: anatolykatz/mymetrics:1.1.2
     container_name: mymetrics
     build:
       context: .
