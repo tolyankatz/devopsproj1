@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mymetrics-app
+  labels:
+    app: mymetrics
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mymetrics
+  template:
+    metadata:
+      labels:
+        app: mymetrics
+    spec:
+      containers:
+      - name: mymetrics
+        image: anatolykatz/mymetrics:latest
+        env:
+        - name: FLASK_APP
+          value: /app/main.py
+        ports:
+        - containerPort: 8080
