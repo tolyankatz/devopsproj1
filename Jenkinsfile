@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo building.....'
-                sh 'docker build . -t app'
+                build("anatolykatz/mymetrics:1.1.2")
             }
         }
         stage('Test'){
