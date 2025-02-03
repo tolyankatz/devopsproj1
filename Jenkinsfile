@@ -6,19 +6,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo building.....'
-                build("anatolykatz/mymetrics:1.1.2")
+                sh 'echo "docker build . -t anatolykatz/mymetrics:1.1.2"'
             }
         }
         stage('Test'){
             steps {
-                sh 'echo Test'
+                sh 'echo "pytest ."'
                 
             }
         }
         stage('Deploy') {
             steps {
-                sh 'echo Deploy'
+                sh 'echo "docker-compose up -d"'
             }
         }
     }
