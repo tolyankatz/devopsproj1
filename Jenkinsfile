@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "This is a build"'
+                sh 'docker compose build app'
             }
         }
         stage('Test'){
