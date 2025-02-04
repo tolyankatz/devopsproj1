@@ -12,7 +12,8 @@ pipeline {
 //                 }
 //             }
             steps {
-                sh 'echo "dockers build . -t anatolykatz/mymetrics:1.1.2"'
+                sh 'echo "docker build . -t anatolykatz/mymetrics:1.1.2"'
+                sh 'echo "check build "'
             }
         }
         stage('Test'){
