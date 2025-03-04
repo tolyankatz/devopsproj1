@@ -18,13 +18,13 @@ pipeline {
         }
         stage('Test'){
             steps {
-                sh 'echo "pytest ."'
+                sh 'echo "pytest_1 ."'
                 
             }
         }
         stage('Deploy') {
             steps {
-                sh 'echo "deploy"'
+                sh 'echo "deploy_2"'
             }
         }
     }
