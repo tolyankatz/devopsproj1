@@ -19,10 +19,10 @@ spec:
       - name: grafana
         image: grafana/grafana:11.4.0
         env:
-#          - name: GF_SECURITY_ADMIN_USER
-#            value: "admin"
-#          - name: GF_SECURITY_ADMIN_PASSWORD
-#            value: "admin"
+          - name: GF_SECURITY_ADMIN_USER
+            value: "tolyankatz"
+          - name: GF_SECURITY_ADMIN_PASSWORD
+            value: "tolyan007"
           - name: GF_SERVER_HTTP_PORT
             value: "3000"
         ports:
