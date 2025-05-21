@@ -20,9 +20,9 @@ spec:
         image: grafana/grafana:11.4.0
         env:
           - name: GF_SECURITY_ADMIN_USER
-            value: "tolyankatz@gmail.com"
+            value: "admin"
           - name: GF_SECURITY_ADMIN_PASSWORD
-            value: "tolyan@007"
+            value: "admin"
           - name: GF_SERVER_HTTP_PORT
             value: "3000"
         ports:
