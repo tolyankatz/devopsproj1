@@ -22,7 +22,7 @@ spec:
           - name: GF_SECURITY_ADMIN_USER
             value: "tolyankatz@gmail.com"
           - name: GF_SECURITY_ADMIN_PASSWORD
-            value: "tolyan007"
+            value: "tolyan@007"
           - name: GF_SERVER_HTTP_PORT
             value: "3000"
         ports:
